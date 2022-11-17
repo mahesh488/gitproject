@@ -1,0 +1,110 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 20, 2020 at 05:25 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `clms`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clms_login`
+--
+
+DROP TABLE IF EXISTS `clms_login`;
+CREATE TABLE IF NOT EXISTS `clms_login` (
+  `id` int(80) NOT NULL AUTO_INCREMENT,
+  `username` varchar(80) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `connected_at` datetime(6) NOT NULL,
+  `logout_time` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clms_login`
+--
+
+INSERT INTO `clms_login` (`id`, `username`, `password`, `connected_at`, `logout_time`) VALUES
+(1, 'mohit', '1234', '2020-10-20 16:29:23.000000', '2020-10-20 16:39:14.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clms_student`
+--
+
+DROP TABLE IF EXISTS `clms_student`;
+CREATE TABLE IF NOT EXISTS `clms_student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `h_image1` varchar(255) DEFAULT NULL,
+  `connected_at` datetime(6) DEFAULT NULL,
+  `logout_time` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=305 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clms_student`
+--
+
+INSERT INTO `clms_student` (`id`, `username`, `email`, `password`, `address`, `phone`, `h_image1`, `connected_at`, `logout_time`) VALUES
+(304, 'ram', 'ram@gmail.com', '1234', 'jaipur', '4654646', NULL, '2020-10-20 17:09:08.000000', '2020-10-20 16:41:34.000000'),
+(181, 'vikas', 'vikas@gmail.com', '1234', 'jaipur', '4575675', NULL, '2020-10-20 01:00:00.000000', '2020-10-20 02:00:05.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `computer_info`
+--
+
+DROP TABLE IF EXISTS `computer_info`;
+CREATE TABLE IF NOT EXISTS `computer_info` (
+  `id` int(128) NOT NULL AUTO_INCREMENT,
+  `computer_name` varchar(255) DEFAULT NULL,
+  `os_info` varchar(255) DEFAULT NULL,
+  `processor` varchar(255) DEFAULT NULL,
+  `ram` varchar(255) DEFAULT NULL,
+  `storage` varchar(255) DEFAULT NULL,
+  `keyboard` tinyint(1) DEFAULT '0',
+  `mouse` tinyint(1) DEFAULT '0',
+  `monitor` tinyint(1) DEFAULT '0',
+  `cabinet` tinyint(1) DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `comment` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `computer_info`
+--
+
+INSERT INTO `computer_info` (`id`, `computer_name`, `os_info`, `processor`, `ram`, `storage`, `keyboard`, `mouse`, `monitor`, `cabinet`, `status`, `comment`) VALUES
+(9, 'pc-13', 'windows', 'i7', '16gb', '2tb', 1, 1, 1, 1, 1, 'mouse is not working'),
+(11, 'pc-12', 'windows', 'i4', '32', '2tb', 1, 0, 1, 1, 1, 'the keyboard is not working');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
